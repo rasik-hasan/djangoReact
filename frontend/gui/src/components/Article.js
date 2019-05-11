@@ -2,6 +2,8 @@ import React from "react";
 
 import { List, Avatar, Icon } from "antd";
 
+import { Link } from "react-router-dom";
+
 const IconText = ({ type, text }) => (
   <span>
     <Icon type={type} style={{ marginRight: 8 }} />
@@ -45,7 +47,7 @@ const Articles = props => {
           >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}
-              title={<a href={item.href}>{item.title}</a>}
+              title={<a href={`/${item.id}`}>{item.title}</a>}
               description={item.description}
             />
             {item.content}
