@@ -32,7 +32,7 @@ export default class ArticleList extends Component {
   render() {
     return (
       <div>
-        <Articles data={listData} />
+        <Articles data={this.state.articles} />
       </div>
     );
   }
