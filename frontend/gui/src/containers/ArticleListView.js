@@ -22,7 +22,7 @@ export default class ArticleList extends Component {
       <div>
         <Articles data={this.state.articles} />
         <h2>Create an article</h2>
-        <CustomForm />
+        <CustomForm requestType="post" articleID={null} btnText="Create" />
       </div>
     );
   }
