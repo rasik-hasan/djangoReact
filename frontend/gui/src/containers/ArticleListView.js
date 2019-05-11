@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Articles from "../components/Article";
 import axios from "axios";
+import CustomForm from "../components/Form";
 
 export default class ArticleList extends Component {
   state = {
@@ -20,6 +21,8 @@ export default class ArticleList extends Component {
     return (
       <div>
         <Articles data={this.state.articles} />
+        <h2>Create an article</h2>
+        <CustomForm />
       </div>
     );
   }

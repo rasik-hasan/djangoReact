@@ -2,8 +2,6 @@ import React from "react";
 
 import { List, Avatar, Icon } from "antd";
 
-import { Link } from "react-router-dom";
-
 const IconText = ({ type, text }) => (
   <span>
     <Icon type={type} style={{ marginRight: 8 }} />
