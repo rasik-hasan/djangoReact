@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Icon, Input, Button, Spin } from "antd";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import * as actions from "../store/actions/auth";
 
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 
@@ -10,9 +11,10 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        this.props.onAuth(values.username, values.password);
       }
     });
+    this.props.history.push("/");
   };
 
   render() {
@@ -89,4 +91,14 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(WrappedNormalLoginForm);
+const mapDispatchToProps = dispatch => {
+  return {
+    onAuth: (username, password) =>
+      dispatch(actions.authLogin(username, password))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WrappedNormalLoginForm);
